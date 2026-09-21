@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Minhas Tarefas">
+<title>Minhas Tarefas</title>
+<style>
+  :root{
+    --ink:#242018; --paper:#F6F1E7; --paper-2:#EDE5D3; --line:#D9CDB2;
+    --accent:#8A6E4B; --accent-2:#4E6B58; --danger:#A8503F; --muted:#8A8074;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#EDE6D8; --paper:#1B1812; --paper-2:#242019; --line:#3A342A;
+      --accent:#C9A66B; --accent-2:#7FA08D; --danger:#D97C6C; --muted:#8C8474;
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%; margin:0;}
+  body{background:var(--paper); color:var(--ink); font-family:'Iowan Old Style','Georgia',serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 20px 40px;}
+  header{padding-top:28px; padding-bottom:18px; border-bottom:1px solid var(--line); margin-bottom:22px;}
+  h1{font-size:1.6rem; font-weight:600; margin:0 0 4px;}
+  .sub{color:var(--muted); font-size:0.92rem; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  .capture{display:flex; gap:10px; margin-bottom:12px;}
+  textarea{flex:1; resize:none; border:1px solid var(--line); background:var(--paper-2); color:var(--ink);
+    border-radius:10px; padding:12px 14px; font-size:1rem; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.4; min-height:48px; max-height:160px;}
+  textarea:focus{outline:none; border-color:var(--accent);}
+  button{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; cursor:pointer; border:none;}
+  .btn-add{background:var(--accent); color:var(--paper); border-radius:10px; padding:0 20px; font-size:0.95rem; font-weight:600; flex-shrink:0;}
+  .btn-add:active{opacity:0.8;}
+  .btn-add:disabled{opacity:0.5; cursor:not-allowed;}
+  .hint{color:var(--muted); font-size:0.82rem; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; margin:-4px 0 22px;}
+  .stats{display:flex; gap:10px; margin-bottom:22px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  .stat-box{flex:1; background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 10px; text-align:center;}
+  .stat-num{font-size:1.3rem; font-weight:700; color:var(--accent);}
+  .stat-label{font-size:0.72rem; color:var(--muted); margin-top:2px;}
+  .filters{display:flex; gap:8px; margin-bottom:16px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  .filters button{background:transparent; color:var(--muted); font-size:0.85rem; padding:6px 12px; border-radius:20px; border:1px solid transparent;}
+  .filters button.active{background:var(--paper-2); color:var(--ink); border-color:var(--line); font-weight:600;}
+  ul{list-style:none; margin:0; padding:0;}
+  li{display:flex; align-items:flex-start; gap:12px; padding:14px 0; border-bottom:1px solid var(--line);}
+  .check{width:22px; height:22px; border-radius:50%; border:1.5px solid var(--accent); flex-shrink:0; margin-top:2px;
+    display:flex; align-items:center; justify-content:center; background:transparent; padding:0;}
+  .check.done{background:var(--accent-2); border-color:var(--accent-2);}
+  .check svg{width:12px; height:12px; opacity:0;}
+  .check.done svg{opacity:1;}
+  .item-text{flex:1; font-size:1.02rem; line-height:1.45; padding-top:1px; word-break:break-word;}
+  .item-text.done{color:var(--muted); text-decoration:line-through;}
+  .meta{font-size:0.75rem; color:var(--muted); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; margin-top:4px;}
+  .del{background:transparent; color:var(--muted); font-size:1.1rem; padding:2px 6px; flex-shrink:0;}
+  .del:active{color:var(--danger);}
+  .empty{text-align:center; color:var(--muted); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; padding:60px 20px; font-size:0.95rem;}
+  .count{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:0.78rem; color:var(--muted); margin-top:24px; text-align:center;}
+  .sync-badge{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:0.8rem; margin-top:4px;}
+  .sync-badge.ok{color:var(--accent-2);}
+  .sync-badge.err{color:var(--danger);}
+  .setup{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:18px; margin-bottom:22px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  .setup h2{font-size:1rem; margin:0 0 10px; font-family:'Iowan Old Style','Georgia',serif;}
+  .setup p{font-size:0.85rem; color:var(--muted); line-height:1.5; margin:0 0 12px;}
+  .setup input{width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--paper);
+    color:var(--ink); font-size:0.9rem; margin-bottom:10px; font-family:monospace;}
+  .setup a{color:var(--accent); text-decoration:underline;}
+  .setup .btn-add{padding:10px 20px; width:100%;}
+  .gear{position:fixed; top:calc(20px); right:20px; background:var(--paper-2); border:1px solid var(--line);
+    border-radius:50%; width:38px; height:38px; display:flex; align-items:center; justify-content:center; font-size:1rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Minhas Tarefas</h1>
+    <div class="sub">Anote o que lembrar. Organize quando puder.</div>
+    <div class="sync-badge" id="syncStatus"></div>
+  </header>
+
+  <div class="setup" id="setupBox" style="display:none;">
+    <h2>Conectar ao GitHub</h2>
+    <p>Cole aqui seu Personal Access Token do GitHub (fine-grained), com permissão de leitura e escrita neste repositório. O token fica guardado só neste navegador.</p>
+    <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+    <button class="btn-add" id="saveTokenBtn">Salvar e conectar</button>
+  </div>
+
+  <div class="capture">
+    <textarea id="input" placeholder="O que você lembrou agora?" rows="1"></textarea>
+    <button class="btn-add" id="addBtn">Adicionar</button>
+  </div>
+  <div class="hint">Dica: dite pelo microfone do teclado e cole aqui.</div>
+
+  <div class="stats" id="statsRow"></div>
+
+  <div class="filters">
+    <button class="active" data-filter="pendentes">Pendentes</button>
+    <button data-filter="feitas">Concluídas</button>
+    <button data-filter="todas">Todas</button>
+  </div>
+
+  <ul id="list"></ul>
+  <div class="empty" id="empty" style="display:none;">Nada por aqui ainda. Anote a primeira coisa que vier à cabeça.</div>
+
+  <div class="count" id="count"></div>
+  <div class="count" style="margin-top:6px; opacity:0.5;">v1.0 · sincronizado via GitHub</div>
+</div>
+<button class="gear" id="gearBtn" title="Configurar conexão">⚙️</button>
+
+<script>
+const REPO = 'aquilesbh/minhas-tarefas';
+const FILE_PATH = 'tarefas.json';
+const API_BASE = 'https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH;
+
+let tasks = [];
+let filter = 'pendentes';
+let currentSha = null;
+let saveTimer = null;
+
+function getToken(){ return localStorage.getItem('gh_token') || ''; }
+function setToken(t){ localStorage.setItem('gh_token', t); }
+
+function setSyncStatus(msg, kind){
+  const el = document.getElementById('syncStatus');
+  el.textContent = msg;
+  el.className = 'sync-badge' + (kind ? ' ' + kind : '');
+}
+
+async function ghGet(){
+  const token = getToken();
+  const res = await fetch(API_BASE, {
+    headers: token ? {Authorization: 'Bearer ' + token, 'Accept':'application/vnd.github+json'} : {'Accept':'application/vnd.github+json'}
+  });
+  if(res.status === 404){
+    return {tasks: [], sha: null};
+  }
+  if(!res.ok) throw new Error('GET ' + res.status);
+  const data = await res.json();
+  currentSha = data.sha;
+  const decoded = decodeURIComponent(escape(atob(data.content)));
+  return {tasks: JSON.parse(decoded || '[]'), sha: data.sha};
+}
+
+async function ghPut(newTasks){
+  const token = getToken();
+  if(!token) throw new Error('no-token');
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(newTasks, null, 2))));
+  const body = {
+    message: 'Atualiza tarefas',
+    content: content
+  };
+  if(currentSha) body.sha = currentSha;
+  const res = await fetch(API_BASE, {
+    method: 'PUT',
+    headers: {
+      Authorization: 'Bearer ' + token,
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  if(!res.ok){
+    const errText = await res.text();
+    throw new Error('PUT ' + res.status + ': ' + errText);
+  }
+  const data = await res.json();
+  currentSha = data.content.sha;
+}
+
+async function loadFromGithub(showLoading){
+  if(showLoading) setSyncStatus('🔄 Carregando...', '');
+  try{
+    const result = await ghGet();
+    tasks = result.tasks;
+    currentSha = result.sha;
+    setSyncStatus('✅ Sincronizado com GitHub', 'ok');
+    render();
+  }catch(e){
+    setSyncStatus('⚠️ Erro ao carregar: ' + e.message, 'err');
+  }
+}
+
+function scheduleSave(){
+  clearTimeout(saveTimer);
+  setSyncStatus('💾 Salvando...', '');
+  saveTimer = setTimeout(async () => {
+    try{
+      await ghPut(tasks);
+      setSyncStatus('✅ Sincronizado com GitHub', 'ok');
+    }catch(e){
+      setSyncStatus('⚠️ Erro ao salvar: ' + e.message, 'err');
+    }
+  }, 600);
+}
+
+function formatDate(ts){
+  const d = new Date(ts);
+  const hoje = new Date();
+  const isHoje = d.toDateString() === hoje.toDateString();
+  const opts = {hour:'2-digit', minute:'2-digit'};
+  if(isHoje) return 'Hoje, ' + d.toLocaleTimeString('pt-BR', opts);
+  return d.toLocaleDateString('pt-BR', {day:'2-digit', month:'short'}) + ', ' + d.toLocaleTimeString('pt-BR', opts);
+}
+
+function renderStats(){
+  const total = tasks.length;
+  const feitas = tasks.filter(t => t.done).length;
+  const pendentes = total - feitas;
+  const statsRow = document.getElementById('statsRow');
+  statsRow.innerHTML = '';
+  [{n: total, l: 'Total'}, {n: pendentes, l: 'A fazer'}, {n: feitas, l: 'Concluídas'}].forEach(s => {
+    const box = document.createElement('div');
+    box.className = 'stat-box';
+    box.innerHTML = '<div class="stat-num">' + s.n + '</div><div class="stat-label">' + s.l + '</div>';
+    statsRow.appendChild(box);
+  });
+}
+
+function render(){
+  const list = document.getElementById('list');
+  const empty = document.getElementById('empty');
+  const count = document.getElementById('count');
+  list.innerHTML = '';
+  renderStats();
+
+  let visible = tasks.filter(t => filter === 'pendentes' ? !t.done : filter === 'feitas' ? t.done : true);
+  visible.sort((a,b) => b.createdAt - a.createdAt);
+  empty.style.display = visible.length === 0 ? 'block' : 'none';
+
+  visible.forEach(t => {
+    const li = document.createElement('li');
+    const check = document.createElement('button');
+    check.className = 'check' + (t.done ? ' done' : '');
+    check.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>';
+    check.onclick = () => toggleTask(t.id);
+
+    const textWrap = document.createElement('div');
+    textWrap.className = 'item-text' + (t.done ? ' done' : '');
+    const p = document.createElement('div');
+    p.textContent = t.text;
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    meta.textContent = formatDate(t.createdAt);
+    textWrap.appendChild(p);
+    textWrap.appendChild(meta);
+
+    const del = document.createElement('button');
+    del.className = 'del';
+    del.textContent = '✕';
+    del.onclick = () => deleteTask(t.id);
+
+    li.appendChild(check);
+    li.appendChild(textWrap);
+    li.appendChild(del);
+    list.appendChild(li);
+  });
+
+  const pendentes = tasks.filter(t => !t.done).length;
+  count.textContent = pendentes === 0 ? 'Tudo em dia' : pendentes + (pendentes === 1 ? ' tarefa pendente' : ' tarefas pendentes');
+}
+
+function addTask(){
+  const input = document.getElementById('input');
+  const text = input.value.trim();
+  if(!text) return;
+  tasks.push({
+    id: Date.now() + '_' + Math.random().toString(36).slice(2,7),
+    text: text, done: false, createdAt: Date.now()
+  });
+  input.value = '';
+  input.style.height = 'auto';
+  render();
+  scheduleSave();
+}
+
+function toggleTask(id){
+  const t = tasks.find(x => x.id === id);
+  if(!t) return;
+  t.done = !t.done;
+  render();
+  scheduleSave();
+}
+
+function deleteTask(id){
+  tasks = tasks.filter(x => x.id !== id);
+  render();
+  scheduleSave();
+}
+
+document.getElementById('addBtn').onclick = addTask;
+const input = document.getElementById('input');
+input.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); addTask(); }
+});
+input.addEventListener('input', () => {
+  input.style.height = 'auto';
+  input.style.height = Math.min(input.scrollHeight, 160) + 'px';
+});
+document.querySelectorAll('.filters button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filter = btn.dataset.filter;
+    render();
+  });
+});
+
+document.getElementById('gearBtn').onclick = () => {
+  const box = document.getElementById('setupBox');
+  box.style.display = box.style.display === 'none' ? 'block' : 'none';
+};
+document.getElementById('saveTokenBtn').onclick = () => {
+  const val = document.getElementById('tokenInput').value.trim();
+  if(!val) return;
+  setToken(val);
+  document.getElementById('setupBox').style.display = 'none';
+  loadFromGithub(true);
+};
+
+// Inicialização
+if(!getToken()){
+  document.getElementById('setupBox').style.display = 'block';
+  setSyncStatus('⚠️ Configure seu token do GitHub (ícone ⚙️)', 'err');
+} else {
+  loadFromGithub(true);
+}
+</script>
+</body>
+</html>
