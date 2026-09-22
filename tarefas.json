@@ -10,5 +10,11 @@
     "text": "Teste 2",
     "done": true,
     "createdAt": 1790040687031
+  },
+  {
+    "id": "1790040740624_c4ll0",
+    "text": "Adicionar o botão de atualizar ou colocar um timer somente no pro desktop de 30 segundos atualizar",
+    "done": false,
+    "createdAt": 1790040740624
   }
 ]
