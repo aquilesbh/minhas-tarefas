@@ -154,5 +154,11 @@
     "text": "Colocar identificação nas chaves do salgado filho",
     "done": true,
     "createdAt": 1790167415836
+  },
+  {
+    "id": "1790203655057_e3g3m",
+    "text": "Máquina de cortar",
+    "done": false,
+    "createdAt": 1790203655057
   }
 ]
