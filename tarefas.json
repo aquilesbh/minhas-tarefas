@@ -106,5 +106,11 @@
     "text": "Ligar para os clientes",
     "done": false,
     "createdAt": 1790164289178
+  },
+  {
+    "id": "1790164366113_zqid7",
+    "text": "Carteira da Alexandra",
+    "done": false,
+    "createdAt": 1790164366113
   }
 ]
