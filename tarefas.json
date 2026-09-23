@@ -100,5 +100,11 @@
     "text": "Captar",
     "done": false,
     "createdAt": 1790164283187
+  },
+  {
+    "id": "1790164289178_rlb72",
+    "text": "Ligar para os clientes",
+    "done": false,
+    "createdAt": 1790164289178
   }
 ]
