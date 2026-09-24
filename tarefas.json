@@ -160,5 +160,11 @@
     "text": "Máquina de cortar",
     "done": false,
     "createdAt": 1790203655057
+  },
+  {
+    "id": "1790247468433_6ocsm",
+    "text": "Aniversários de clientes",
+    "done": false,
+    "createdAt": 1790247468433
   }
 ]
