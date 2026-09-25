@@ -207,6 +207,14 @@
       "name": "Cartao de credito c6",
       "day": 1,
       "lastRun": null
+    },
+    {
+      "id": "1790356944966_ehpwe",
+      "type": "aniversario",
+      "name": "Rosemary - 31.9 8907-5995",
+      "month": 9,
+      "day": 25,
+      "lastRun": null
     }
   ]
 }
