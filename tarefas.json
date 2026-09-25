@@ -200,6 +200,13 @@
       "name": "Escola do Benicio e da Liz",
       "day": 15,
       "lastRun": null
+    },
+    {
+      "id": "1790355712006_ykao1",
+      "type": "conta",
+      "name": "Cartao de credito c6",
+      "day": 1,
+      "lastRun": null
     }
   ]
 }
