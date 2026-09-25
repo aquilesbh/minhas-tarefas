@@ -68,6 +68,18 @@
   .setup .btn-add{padding:10px 20px; width:100%;}
   .gear{position:fixed; top:calc(20px); right:20px; background:var(--paper-2); border:1px solid var(--line);
     border-radius:50%; width:38px; height:38px; display:flex; align-items:center; justify-content:center; font-size:1rem;}
+  .discreet-link{display:block; text-align:center; color:var(--muted); font-size:0.75rem; opacity:0.55;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; margin-top:18px; text-decoration:underline; background:none;}
+  .recur-box{background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:16px; margin-top:14px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  .recur-box h3{font-size:0.9rem; margin:0 0 10px; font-family:'Iowan Old Style','Georgia',serif;}
+  .recur-row{display:flex; gap:6px; margin-bottom:8px;}
+  .recur-row input, .recur-row select{flex:1; padding:8px 10px; border:1px solid var(--line); border-radius:8px;
+    background:var(--paper); color:var(--ink); font-size:0.85rem; min-width:0;}
+  .recur-row button{background:var(--accent); color:var(--paper); border-radius:8px; padding:0 14px; font-size:0.85rem; flex-shrink:0;}
+  .recur-list{margin-top:10px;}
+  .recur-item{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-top:1px solid var(--line); font-size:0.85rem;}
+  .recur-item .del{font-size:1rem;}
 </style>
 </head>
 <body>
@@ -103,7 +115,24 @@
   <div class="empty" id="empty" style="display:none;">Nada por aqui ainda. Anote a primeira coisa que vier à cabeça.</div>
 
   <div class="count" id="count"></div>
-  <div class="count" style="margin-top:6px; opacity:0.5;">v1.0 · sincronizado via GitHub</div>
+  <div class="count" style="margin-top:6px; opacity:0.5;">v1.1 · sincronizado via GitHub</div>
+
+  <button class="discreet-link" id="toggleRecurBtn">+ datas e contas recorrentes</button>
+  <div class="recur-box" id="recurBox" style="display:none;">
+    <h3>Aniversário de cliente</h3>
+    <div class="recur-row">
+      <input type="text" id="bdayName" placeholder="Nome do cliente">
+      <input type="date" id="bdayDate" style="flex:0 0 140px;">
+      <button id="addBdayBtn">+</button>
+    </div>
+    <h3 style="margin-top:16px;">Conta / pagamento mensal</h3>
+    <div class="recur-row">
+      <input type="text" id="billName" placeholder="Ex: Cartão de crédito">
+      <input type="number" id="billDay" placeholder="Dia" min="1" max="31" style="flex:0 0 70px;">
+      <button id="addBillBtn">+</button>
+    </div>
+    <div class="recur-list" id="recurList"></div>
+  </div>
 </div>
 <button class="gear" id="gearBtn" title="Configurar conexão">⚙️</button>
 
@@ -113,6 +142,7 @@ const FILE_PATH = 'tarefas.json';
 const API_BASE = 'https://api.github.com/repos/' + REPO + '/contents/' + FILE_PATH;
 
 let tasks = [];
+let recurring = []; // {id, type:'aniversario'|'conta', name, month, day, lastRun}
 let filter = 'pendentes';
 let currentSha = null;
 let saveTimer = null;
@@ -132,19 +162,24 @@ async function ghGet(){
     headers: token ? {Authorization: 'Bearer ' + token, 'Accept':'application/vnd.github+json'} : {'Accept':'application/vnd.github+json'}
   });
   if(res.status === 404){
-    return {tasks: [], sha: null};
+    return {tasks: [], recurring: [], sha: null};
   }
   if(!res.ok) throw new Error('GET ' + res.status);
   const data = await res.json();
   currentSha = data.sha;
   const decoded = decodeURIComponent(escape(atob(data.content)));
-  return {tasks: JSON.parse(decoded || '[]'), sha: data.sha};
+  const parsed = JSON.parse(decoded || '{}');
+  if(Array.isArray(parsed)){
+    return {tasks: parsed, recurring: [], sha: data.sha};
+  }
+  return {tasks: parsed.tasks || [], recurring: parsed.recurring || [], sha: data.sha};
 }
 
-async function ghPut(newTasks){
+async function ghPut(){
   const token = getToken();
   if(!token) throw new Error('no-token');
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(newTasks, null, 2))));
+  const payload = {tasks: tasks, recurring: recurring};
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
   const body = {
     message: 'Atualiza tarefas',
     content: content
@@ -172,9 +207,12 @@ async function loadFromGithub(showLoading){
   try{
     const result = await ghGet();
     tasks = result.tasks;
+    recurring = result.recurring;
     currentSha = result.sha;
     setSyncStatus('✅ Sincronizado com GitHub', 'ok');
+    generateRecurringTasks();
     render();
+    renderRecurList();
   }catch(e){
     setSyncStatus('⚠️ Erro ao carregar: ' + e.message, 'err');
   }
@@ -185,12 +223,41 @@ function scheduleSave(){
   setSyncStatus('💾 Salvando...', '');
   saveTimer = setTimeout(async () => {
     try{
-      await ghPut(tasks);
+      await ghPut();
       setSyncStatus('✅ Sincronizado com GitHub', 'ok');
     }catch(e){
       setSyncStatus('⚠️ Erro ao salvar: ' + e.message, 'err');
     }
   }, 600);
+}
+
+function periodKey(d){ return d.getFullYear() + '-' + (d.getMonth()+1); }
+
+function generateRecurringTasks(){
+  const today = new Date();
+  const todayDay = today.getDate();
+  const todayMonth = today.getMonth() + 1;
+  let changed = false;
+
+  recurring.forEach(r => {
+    const isDue = r.type === 'aniversario'
+      ? (todayDay === r.day && todayMonth === r.month)
+      : (todayDay === r.day);
+    const currentPeriod = periodKey(today);
+    if(isDue && r.lastRun !== currentPeriod){
+      const text = r.type === 'aniversario'
+        ? 'Dar parabéns para ' + r.name + ' (aniversário)'
+        : 'Pagar: ' + r.name;
+      tasks.push({
+        id: Date.now() + '_' + Math.random().toString(36).slice(2,7),
+        text: text, done: false, createdAt: Date.now()
+      });
+      r.lastRun = currentPeriod;
+      changed = true;
+    }
+  });
+
+  if(changed) scheduleSave();
 }
 
 function formatDate(ts){
@@ -315,6 +382,70 @@ document.getElementById('saveTokenBtn').onclick = () => {
   setToken(val);
   document.getElementById('setupBox').style.display = 'none';
   loadFromGithub(true);
+};
+
+document.getElementById('toggleRecurBtn').onclick = () => {
+  const box = document.getElementById('recurBox');
+  box.style.display = box.style.display === 'none' ? 'block' : 'none';
+};
+
+function renderRecurList(){
+  const list = document.getElementById('recurList');
+  list.innerHTML = '';
+  recurring.forEach(r => {
+    const row = document.createElement('div');
+    row.className = 'recur-item';
+    const label = r.type === 'aniversario'
+      ? '🎂 ' + r.name + ' — dia ' + String(r.day).padStart(2,'0') + '/' + String(r.month).padStart(2,'0')
+      : '💳 ' + r.name + ' — todo dia ' + r.day;
+    row.innerHTML = '<span>' + label + '</span>';
+    const del = document.createElement('button');
+    del.className = 'del';
+    del.textContent = '✕';
+    del.onclick = () => {
+      recurring = recurring.filter(x => x.id !== r.id);
+      renderRecurList();
+      scheduleSave();
+    };
+    row.appendChild(del);
+    list.appendChild(row);
+  });
+}
+
+document.getElementById('addBdayBtn').onclick = () => {
+  const nameEl = document.getElementById('bdayName');
+  const dateEl = document.getElementById('bdayDate');
+  const name = nameEl.value.trim();
+  const dateVal = dateEl.value;
+  if(!name || !dateVal) return;
+  const parts = dateVal.split('-'); // YYYY-MM-DD
+  recurring.push({
+    id: Date.now() + '_' + Math.random().toString(36).slice(2,7),
+    type: 'aniversario', name: name,
+    month: parseInt(parts[1], 10), day: parseInt(parts[2], 10),
+    lastRun: null
+  });
+  nameEl.value = '';
+  dateEl.value = '';
+  renderRecurList();
+  scheduleSave();
+};
+
+document.getElementById('addBillBtn').onclick = () => {
+  const nameEl = document.getElementById('billName');
+  const dayEl = document.getElementById('billDay');
+  const name = nameEl.value.trim();
+  const day = parseInt(dayEl.value, 10);
+  if(!name || !day || day < 1 || day > 31) return;
+  recurring.push({
+    id: Date.now() + '_' + Math.random().toString(36).slice(2,7),
+    type: 'conta', name: name, day: day,
+    lastRun: null
+  });
+  nameEl.value = '';
+  dayEl.value = '';
+  renderRecurList();
+  scheduleSave();
 };
 
 // Inicialização
