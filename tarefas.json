@@ -221,6 +221,12 @@
       "text": "Cliente Contato",
       "done": false,
       "createdAt": 1790596725032
+    },
+    {
+      "id": "1790596793791_claje",
+      "text": "Cabo do monitor",
+      "done": false,
+      "createdAt": 1790596793791
     }
   ],
   "recurring": [
