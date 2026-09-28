@@ -197,6 +197,12 @@
       "text": "Comprar leite pro Benício",
       "done": false,
       "createdAt": 1790590326254
+    },
+    {
+      "id": "1790596638069_i8343",
+      "text": "Cartorio Vitor",
+      "done": false,
+      "createdAt": 1790596638069
     }
   ],
   "recurring": [
