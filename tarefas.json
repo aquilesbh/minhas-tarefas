@@ -191,6 +191,12 @@
       "text": "cartao de credito c6",
       "done": true,
       "createdAt": 1790354633571
+    },
+    {
+      "id": "1790590326254_ibt8g",
+      "text": "Comprar leite pro Benício",
+      "done": false,
+      "createdAt": 1790590326254
     }
   ],
   "recurring": [
