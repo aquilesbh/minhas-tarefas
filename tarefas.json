@@ -233,6 +233,12 @@
       "text": "Pagar o contrato social",
       "done": false,
       "createdAt": 1790597106551
+    },
+    {
+      "id": "1790597127867_jpfxv",
+      "text": "Fazer o calculo para ter a renda necessaria",
+      "done": false,
+      "createdAt": 1790597127867
     }
   ],
   "recurring": [
