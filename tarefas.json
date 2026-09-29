@@ -257,6 +257,12 @@
       "text": "Captar apto Júlio de Castilho no prédio da Tati",
       "done": false,
       "createdAt": 1790683377011
+    },
+    {
+      "id": "1790697498818_aoa0k",
+      "text": "Pagar o pedagio",
+      "done": false,
+      "createdAt": 1790697498818
     }
   ],
   "recurring": [
