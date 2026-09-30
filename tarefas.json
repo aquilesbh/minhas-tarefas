@@ -263,6 +263,12 @@
       "text": "Pagar o pedagio",
       "done": false,
       "createdAt": 1790697498818
+    },
+    {
+      "id": "1790800106495_oazus",
+      "text": "anunciar no feed do whatsapp",
+      "done": false,
+      "createdAt": 1790800106495
     }
   ],
   "recurring": [
