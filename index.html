@@ -80,6 +80,10 @@
   .recur-list{margin-top:10px;}
   .recur-item{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-top:1px solid var(--line); font-size:0.85rem;}
   .recur-item .del{font-size:1rem;}
+  .item-text.urgent .meta{color:var(--danger); font-weight:600;}
+  .urgent-badge{display:inline-block; background:var(--danger); color:#fff; font-size:0.68rem; font-weight:700;
+    padding:2px 7px; border-radius:20px; margin-left:6px; vertical-align:middle;}
+  li.urgent{border-left:3px solid var(--danger); padding-left:10px; margin-left:-13px;}
 </style>
 </head>
 <body>
@@ -250,7 +254,7 @@ function generateRecurringTasks(){
         : 'Pagar: ' + r.name;
       tasks.push({
         id: Date.now() + '_' + Math.random().toString(36).slice(2,7),
-        text: text, done: false, createdAt: Date.now()
+        text: text, done: false, createdAt: Date.now(), urgent: true
       });
       r.lastRun = currentPeriod;
       changed = true;
@@ -291,20 +295,32 @@ function render(){
   renderStats();
 
   let visible = tasks.filter(t => filter === 'pendentes' ? !t.done : filter === 'feitas' ? t.done : true);
-  visible.sort((a,b) => b.createdAt - a.createdAt);
+  visible.sort((a,b) => {
+    const au = a.urgent && !a.done ? 1 : 0;
+    const bu = b.urgent && !b.done ? 1 : 0;
+    if(au !== bu) return bu - au;
+    return b.createdAt - a.createdAt;
+  });
   empty.style.display = visible.length === 0 ? 'block' : 'none';
 
   visible.forEach(t => {
     const li = document.createElement('li');
+    if(t.urgent && !t.done) li.className = 'urgent';
     const check = document.createElement('button');
     check.className = 'check' + (t.done ? ' done' : '');
     check.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>';
     check.onclick = () => toggleTask(t.id);
 
     const textWrap = document.createElement('div');
-    textWrap.className = 'item-text' + (t.done ? ' done' : '');
+    textWrap.className = 'item-text' + (t.done ? ' done' : '') + (t.urgent && !t.done ? ' urgent' : '');
     const p = document.createElement('div');
     p.textContent = t.text;
+    if(t.urgent && !t.done){
+      const badge = document.createElement('span');
+      badge.className = 'urgent-badge';
+      badge.textContent = '🔴 URGENTE';
+      p.appendChild(badge);
+    }
     const meta = document.createElement('div');
     meta.className = 'meta';
     meta.textContent = formatDate(t.createdAt);
