@@ -275,6 +275,13 @@
       "text": "captar apto de locação no BH",
       "done": false,
       "createdAt": 1790801185787
+    },
+    {
+      "id": "1790858567539_e9gk8",
+      "text": "Pagar: Cartao de credito c6",
+      "done": false,
+      "createdAt": 1790858567539,
+      "urgent": true
     }
   ],
   "recurring": [
@@ -290,7 +297,7 @@
       "type": "conta",
       "name": "Cartao de credito c6",
       "day": 1,
-      "lastRun": null
+      "lastRun": "2026-10"
     },
     {
       "id": "1790356944966_ehpwe",
