@@ -324,6 +324,12 @@
       "text": "Adesivos Gade Imóveis\n2 adesivos",
       "done": false,
       "createdAt": 1790874058062
+    },
+    {
+      "id": "1790874067701_imoqx",
+      "text": "Visitas a imóveis/clientes\n2 visitas",
+      "done": false,
+      "createdAt": 1790874067701
     }
   ],
   "recurring": [
