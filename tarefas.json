@@ -279,7 +279,7 @@
     {
       "id": "1790858567539_e9gk8",
       "text": "Pagar: Cartao de credito c6",
-      "done": false,
+      "done": true,
       "createdAt": 1790858567539,
       "urgent": true
     },
