@@ -342,6 +342,12 @@
       "text": "Msg automática para cobrança de aluguel",
       "done": false,
       "createdAt": 1790875432338
+    },
+    {
+      "id": "1790877241927_tu7t4",
+      "text": "Atualização do sistema de captação, fazer a mesma coisa para locação.",
+      "done": false,
+      "createdAt": 1790877241928
     }
   ],
   "recurring": [
