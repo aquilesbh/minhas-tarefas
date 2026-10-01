@@ -330,6 +330,12 @@
       "text": "Visitas a imóveis/clientes\n2 visitas",
       "done": false,
       "createdAt": 1790874067701
+    },
+    {
+      "id": "1790874076021_hypka",
+      "text": "Ligações atendidas\n2 por dia",
+      "done": false,
+      "createdAt": 1790874076021
     }
   ],
   "recurring": [
