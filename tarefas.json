@@ -300,6 +300,12 @@
       "text": "Metas Pessoais",
       "done": false,
       "createdAt": 1790861794961
+    },
+    {
+      "id": "1790861798974_qj8a9",
+      "text": "Metas imobiliaria",
+      "done": false,
+      "createdAt": 1790861798974
     }
   ],
   "recurring": [
