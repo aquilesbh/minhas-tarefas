@@ -336,6 +336,12 @@
       "text": "Ligações atendidas\n2 por dia",
       "done": false,
       "createdAt": 1790874076021
+    },
+    {
+      "id": "1790875432338_1he8b",
+      "text": "Msg automática para cobrança de aluguel",
+      "done": false,
+      "createdAt": 1790875432338
     }
   ],
   "recurring": [
