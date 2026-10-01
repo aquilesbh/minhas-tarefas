@@ -312,6 +312,12 @@
       "text": "Captações de imóveis para venda\n3 captações",
       "done": false,
       "createdAt": 1790874033566
+    },
+    {
+      "id": "1790874042557_mcomm",
+      "text": "Captação de imóveis para locação\n1 captação",
+      "done": false,
+      "createdAt": 1790874042557
     }
   ],
   "recurring": [
