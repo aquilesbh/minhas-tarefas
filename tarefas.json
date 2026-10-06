@@ -310,13 +310,13 @@
     {
       "id": "1790874033565_2e5m2",
       "text": "Captações de imóveis para venda\n3 captações",
-      "done": false,
+      "done": true,
       "createdAt": 1790874033566
     },
     {
       "id": "1790874042557_mcomm",
       "text": "Captação de imóveis para locação\n1 captação",
-      "done": false,
+      "done": true,
       "createdAt": 1790874042557
     },
     {
