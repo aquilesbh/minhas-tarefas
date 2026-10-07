@@ -384,6 +384,12 @@
       "text": "Comissao fazer as contas",
       "done": false,
       "createdAt": 1791373604816
+    },
+    {
+      "id": "1791373614986_k7hc8",
+      "text": "mandar pix do despachante para ocartorio",
+      "done": false,
+      "createdAt": 1791373614986
     }
   ],
   "recurring": [
