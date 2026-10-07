@@ -396,6 +396,12 @@
       "text": "Fazer a campanha de MKT",
       "done": false,
       "createdAt": 1791373625146
+    },
+    {
+      "id": "1791373634482_icme7",
+      "text": "enviar o balanço da gade",
+      "done": false,
+      "createdAt": 1791373634482
     }
   ],
   "recurring": [
