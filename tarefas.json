@@ -370,7 +370,7 @@
     {
       "id": "1791291701283_kiloq",
       "text": "apto 2 quartos do taxista",
-      "done": false,
+      "done": true,
       "createdAt": 1791291701283
     },
     {
@@ -382,7 +382,7 @@
     {
       "id": "1791373604816_pyljk",
       "text": "Comissao fazer as contas",
-      "done": false,
+      "done": true,
       "createdAt": 1791373604816
     },
     {
