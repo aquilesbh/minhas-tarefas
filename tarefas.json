@@ -378,6 +378,12 @@
       "text": "Manda doc para o Vítor",
       "done": true,
       "createdAt": 1791298559673
+    },
+    {
+      "id": "1791373604816_pyljk",
+      "text": "Comissao fazer as contas",
+      "done": false,
+      "createdAt": 1791373604816
     }
   ],
   "recurring": [
