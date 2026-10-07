@@ -426,6 +426,12 @@
       "text": "olhar se a cobertura está no quindo andar",
       "done": true,
       "createdAt": 1791379533984
+    },
+    {
+      "id": "1791401780910_s6hde",
+      "text": "anuncio do facebook",
+      "done": false,
+      "createdAt": 1791401780911
     }
   ],
   "recurring": [
