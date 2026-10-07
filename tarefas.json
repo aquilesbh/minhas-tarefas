@@ -420,6 +420,12 @@
       "text": "Mandar msg para o cliente Fabricio da cobertura",
       "done": false,
       "createdAt": 1791376624847
+    },
+    {
+      "id": "1791379533984_xum64",
+      "text": "olhar se a cobertura está no quindo andar",
+      "done": false,
+      "createdAt": 1791379533984
     }
   ],
   "recurring": [
