@@ -432,6 +432,12 @@
       "text": "anuncio do facebook",
       "done": false,
       "createdAt": 1791401780911
+    },
+    {
+      "id": "1791549147187_k683i",
+      "text": "nubank nao enviar email de transferencia",
+      "done": false,
+      "createdAt": 1791549147187
     }
   ],
   "recurring": [
