@@ -111,7 +111,7 @@
     {
       "id": "1790164366113_zqid7",
       "text": "Carteira da Alexandra",
-      "done": false,
+      "done": true,
       "createdAt": 1790164366113
     },
     {
@@ -436,7 +436,7 @@
     {
       "id": "1791549147187_k683i",
       "text": "nubank nao enviar email de transferencia",
-      "done": false,
+      "done": true,
       "createdAt": 1791549147187
     },
     {
