@@ -474,6 +474,12 @@
       "text": "Contas a pagar",
       "done": false,
       "createdAt": 1791895142852
+    },
+    {
+      "id": "1791896816477_o0tx9",
+      "text": "resolver coisas de Elizete",
+      "done": false,
+      "createdAt": 1791896816480
     }
   ],
   "recurring": [
