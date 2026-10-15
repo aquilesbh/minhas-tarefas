@@ -505,6 +505,12 @@
       "done": true,
       "createdAt": 1792067712066,
       "urgent": true
+    },
+    {
+      "id": "1792067769468_57kc8",
+      "text": "Irmã do Frank",
+      "done": false,
+      "createdAt": 1792067769468
     }
   ],
   "recurring": [
