@@ -498,6 +498,13 @@
       "text": "imoveis com poucas fotos não está sendo anunciada",
       "done": false,
       "createdAt": 1792002758913
+    },
+    {
+      "id": "1792067712066_f4ebn",
+      "text": "Pagar: Escola do Benicio e da Liz",
+      "done": false,
+      "createdAt": 1792067712066,
+      "urgent": true
     }
   ],
   "recurring": [
@@ -506,7 +513,7 @@
       "type": "conta",
       "name": "Escola do Benicio e da Liz",
       "day": 15,
-      "lastRun": null
+      "lastRun": "2026-10"
     },
     {
       "id": "1790355712006_ykao1",
