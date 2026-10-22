@@ -541,6 +541,12 @@
       "text": "natação",
       "done": true,
       "createdAt": 1792155429221
+    },
+    {
+      "id": "1792670543132_mxolm",
+      "text": "Propaganda Facebook",
+      "done": false,
+      "createdAt": 1792670543132
     }
   ],
   "recurring": [
