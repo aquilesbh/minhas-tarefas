@@ -589,6 +589,12 @@
       "text": "reunião semanal",
       "done": false,
       "createdAt": 1792670595731
+    },
+    {
+      "id": "1792670710395_np1w2",
+      "text": "reajuste do aluguel da gade",
+      "done": false,
+      "createdAt": 1792670710395
     }
   ],
   "recurring": [
