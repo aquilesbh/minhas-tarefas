@@ -577,6 +577,12 @@
       "text": "Clientes de aluguel",
       "done": false,
       "createdAt": 1792670588011
+    },
+    {
+      "id": "1792670591891_jobas",
+      "text": "metas de captação",
+      "done": false,
+      "createdAt": 1792670591891
     }
   ],
   "recurring": [
