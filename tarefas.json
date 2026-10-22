@@ -595,6 +595,12 @@
       "text": "reajuste do aluguel da gade",
       "done": false,
       "createdAt": 1792670710395
+    },
+    {
+      "id": "1792670715265_zr1aq",
+      "text": "balanço da gade",
+      "done": false,
+      "createdAt": 1792670715265
     }
   ],
   "recurring": [
