@@ -583,6 +583,12 @@
       "text": "metas de captação",
       "done": false,
       "createdAt": 1792670591891
+    },
+    {
+      "id": "1792670595731_uirie",
+      "text": "reunião semanal",
+      "done": false,
+      "createdAt": 1792670595731
     }
   ],
   "recurring": [
