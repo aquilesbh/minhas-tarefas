@@ -661,6 +661,12 @@
       "text": "contatos",
       "done": false,
       "createdAt": 1792843444416
+    },
+    {
+      "id": "1792843730420_sgbpe",
+      "text": "fachada da loja",
+      "done": false,
+      "createdAt": 1792843730420
     }
   ],
   "recurring": [
