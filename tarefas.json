@@ -643,6 +643,12 @@
       "text": "camisa do galo",
       "done": false,
       "createdAt": 1792759479478
+    },
+    {
+      "id": "1792843409768_ovbig",
+      "text": "cliente do condominio",
+      "done": false,
+      "createdAt": 1792843409769
     }
   ],
   "recurring": [
