@@ -673,6 +673,12 @@
       "text": "nu bank",
       "done": false,
       "createdAt": 1792848227384
+    },
+    {
+      "id": "1792848270450_jolmp",
+      "text": "pagar a vero",
+      "done": false,
+      "createdAt": 1792848270450
     }
   ],
   "recurring": [
