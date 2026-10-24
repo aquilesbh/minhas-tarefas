@@ -649,6 +649,12 @@
       "text": "cliente do condominio",
       "done": false,
       "createdAt": 1792843409769
+    },
+    {
+      "id": "1792843440288_vvuhw",
+      "text": "cliente do estrela dalva",
+      "done": false,
+      "createdAt": 1792843440288
     }
   ],
   "recurring": [
