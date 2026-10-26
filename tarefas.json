@@ -679,6 +679,12 @@
       "text": "pagar a vero",
       "done": true,
       "createdAt": 1792848270450
+    },
+    {
+      "id": "1793015786626_w45tb",
+      "text": "Apto para Edimar",
+      "done": false,
+      "createdAt": 1793015786629
     }
   ],
   "recurring": [
