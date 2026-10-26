@@ -697,6 +697,12 @@
       "text": "Quinto andar, apto do Bombeiro da Julio de Castilho",
       "done": false,
       "createdAt": 1793030506319
+    },
+    {
+      "id": "1793030672132_zf9sm",
+      "text": "Seguro pessoal",
+      "done": false,
+      "createdAt": 1793030672132
     }
   ],
   "recurring": [
