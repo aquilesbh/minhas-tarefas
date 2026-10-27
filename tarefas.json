@@ -703,6 +703,12 @@
       "text": "Seguro pessoal",
       "done": false,
       "createdAt": 1793030672132
+    },
+    {
+      "id": "1793100918756_ea6dy",
+      "text": "Contrato Fernanda, guardar coisas",
+      "done": false,
+      "createdAt": 1793100918768
     }
   ],
   "recurring": [
