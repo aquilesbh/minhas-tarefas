@@ -763,6 +763,12 @@
       "text": "Comprar pão",
       "done": false,
       "createdAt": 1793270199137
+    },
+    {
+      "id": "1793270205214_b79wm",
+      "text": "Comprar leite",
+      "done": false,
+      "createdAt": 1793270205214
     }
   ],
   "recurring": [
