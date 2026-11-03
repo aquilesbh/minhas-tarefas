@@ -865,6 +865,12 @@
       "text": "proposta da sala de locação",
       "done": false,
       "createdAt": 1793709693908
+    },
+    {
+      "id": "1793710064135_88gqx",
+      "text": "fazer todo o balanço da imobiliaria",
+      "done": false,
+      "createdAt": 1793710064135
     }
   ],
   "recurring": [
