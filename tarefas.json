@@ -835,6 +835,12 @@
       "text": "minha aposentadoria",
       "done": false,
       "createdAt": 1793708311227
+    },
+    {
+      "id": "1793708358283_ak6h3",
+      "text": "cartao de credito",
+      "done": false,
+      "createdAt": 1793708358283
     }
   ],
   "recurring": [
