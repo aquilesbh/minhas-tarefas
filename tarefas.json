@@ -877,6 +877,12 @@
       "text": "Cliente Breno delegado",
       "done": true,
       "createdAt": 1793714642760
+    },
+    {
+      "id": "1793735625977_ituxs",
+      "text": "https://clubezap.com.br/login",
+      "done": false,
+      "createdAt": 1793735625978
     }
   ],
   "recurring": [
