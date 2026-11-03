@@ -847,6 +847,12 @@
       "text": "marcar um medico das pernas",
       "done": false,
       "createdAt": 1793708906709
+    },
+    {
+      "id": "1793709639434_jl95h",
+      "text": "subir a nova parte do sistema",
+      "done": false,
+      "createdAt": 1793709639434
     }
   ],
   "recurring": [
