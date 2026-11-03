@@ -853,6 +853,12 @@
       "text": "subir a nova parte do sistema",
       "done": false,
       "createdAt": 1793709639434
+    },
+    {
+      "id": "1793709648740_emkk1",
+      "text": "liberar o facebook",
+      "done": false,
+      "createdAt": 1793709648740
     }
   ],
   "recurring": [
