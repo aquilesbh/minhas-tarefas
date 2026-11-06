@@ -901,6 +901,12 @@
       "text": "assinar com a quinto andar referente a locação",
       "done": false,
       "createdAt": 1793797135410
+    },
+    {
+      "id": "1793973722743_t1nwq",
+      "text": "configurar para nao abrir o adobe na hora de baixa pdf",
+      "done": false,
+      "createdAt": 1793973722743
     }
   ],
   "recurring": [
