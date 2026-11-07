@@ -993,6 +993,14 @@
       "month": 9,
       "day": 27,
       "lastRun": null
+    },
+    {
+      "id": "1794052657704_bopf0",
+      "type": "aniversario",
+      "name": "Fernanda - Casa Adriana",
+      "month": 7,
+      "day": 23,
+      "lastRun": null
     }
   ]
 }
