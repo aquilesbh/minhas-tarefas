@@ -1007,6 +1007,14 @@
       "month": 7,
       "day": 23,
       "lastRun": null
+    },
+    {
+      "id": "1794062445096_ddplb",
+      "type": "aniversario",
+      "name": "Teste de aniversario",
+      "month": 11,
+      "day": 9,
+      "lastRun": null
     }
   ]
 }
