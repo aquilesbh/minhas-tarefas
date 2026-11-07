@@ -907,6 +907,12 @@
       "text": "configurar para nao abrir o adobe na hora de baixa pdf",
       "done": true,
       "createdAt": 1793973722743
+    },
+    {
+      "id": "1794052564443_txx1g",
+      "text": "integração loft e outros portais",
+      "done": false,
+      "createdAt": 1794052564443
     }
   ],
   "recurring": [
