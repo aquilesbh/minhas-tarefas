@@ -923,14 +923,14 @@
     {
       "id": "1794230289225_nx45t",
       "text": "Dar parabéns para Teste de aniversario (aniversário)",
-      "done": false,
+      "done": true,
       "createdAt": 1794230289225,
       "urgent": true
     },
     {
       "id": "1794230289225_npnxr",
       "text": "Pagar: teste de pagamento",
-      "done": false,
+      "done": true,
       "createdAt": 1794230289225,
       "urgent": true
     }
