@@ -919,6 +919,20 @@
       "text": "aluguel no predio BH",
       "done": false,
       "createdAt": 1794052808662
+    },
+    {
+      "id": "1794230289225_nx45t",
+      "text": "Dar parabéns para Teste de aniversario (aniversário)",
+      "done": false,
+      "createdAt": 1794230289225,
+      "urgent": true
+    },
+    {
+      "id": "1794230289225_npnxr",
+      "text": "Pagar: teste de pagamento",
+      "done": false,
+      "createdAt": 1794230289225,
+      "urgent": true
     }
   ],
   "recurring": [
@@ -1014,14 +1028,14 @@
       "name": "Teste de aniversario",
       "month": 11,
       "day": 9,
-      "lastRun": null
+      "lastRun": "2026-11"
     },
     {
       "id": "1794062462955_d434y",
       "type": "conta",
       "name": "teste de pagamento",
       "day": 9,
-      "lastRun": null
+      "lastRun": "2026-11"
     }
   ]
 }
