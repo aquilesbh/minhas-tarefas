@@ -1085,6 +1085,13 @@
       "name": "Cartao de credito NU",
       "day": 18,
       "lastRun": null
+    },
+    {
+      "id": "1794401994435_b99fq",
+      "type": "conta",
+      "name": "Cartao XP",
+      "day": 5,
+      "lastRun": null
     }
   ]
 }
