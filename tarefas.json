@@ -1078,6 +1078,13 @@
       "name": "teste de pagamento",
       "day": 9,
       "lastRun": "2026-11"
+    },
+    {
+      "id": "1794401986748_q6g3z",
+      "type": "conta",
+      "name": "Cartao de credito NU",
+      "day": 18,
+      "lastRun": null
     }
   ]
 }
