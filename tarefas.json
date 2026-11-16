@@ -1023,6 +1023,12 @@
       "text": "dinheiro do Genis",
       "done": false,
       "createdAt": 1794830786864
+    },
+    {
+      "id": "1794835651294_cqchv",
+      "text": "as tarefas recorrentes, tem que aparecerem até informar que foi concluido",
+      "done": false,
+      "createdAt": 1794835651294
     }
   ],
   "recurring": [
