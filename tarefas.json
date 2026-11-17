@@ -1029,6 +1029,12 @@
       "text": "as tarefas recorrentes, tem que aparecerem até informar que foi concluido",
       "done": false,
       "createdAt": 1794835651294
+    },
+    {
+      "id": "1794916792638_jdhz3",
+      "text": "Fazer divisao da comissao",
+      "done": false,
+      "createdAt": 1794916793597
     }
   ],
   "recurring": [
