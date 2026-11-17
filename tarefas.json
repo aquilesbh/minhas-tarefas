@@ -1035,6 +1035,12 @@
       "text": "Fazer divisao da comissao",
       "done": true,
       "createdAt": 1794916793597
+    },
+    {
+      "id": "1794936715950_3fpc3",
+      "text": "aluguel senhora do porto",
+      "done": false,
+      "createdAt": 1794936715955
     }
   ],
   "recurring": [
