@@ -1045,7 +1045,7 @@
     {
       "id": "1795009173210_79we5",
       "text": "Pagar: Cartao de credito NU",
-      "done": false,
+      "done": true,
       "createdAt": 1795009173210,
       "urgent": true
     }
