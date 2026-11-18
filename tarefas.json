@@ -1041,6 +1041,13 @@
       "text": "aluguel senhora do porto",
       "done": false,
       "createdAt": 1794936715955
+    },
+    {
+      "id": "1795009173210_79we5",
+      "text": "Pagar: Cartao de credito NU",
+      "done": false,
+      "createdAt": 1795009173210,
+      "urgent": true
     }
   ],
   "recurring": [
@@ -1143,7 +1150,7 @@
       "type": "conta",
       "name": "Cartao de credito NU",
       "day": 18,
-      "lastRun": null
+      "lastRun": "2026-11"
     },
     {
       "id": "1794401994435_b99fq",
