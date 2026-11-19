@@ -1054,6 +1054,12 @@
       "text": "Despachente - Cobertura",
       "done": false,
       "createdAt": 1795093262965
+    },
+    {
+      "id": "1795093266077_hxyxm",
+      "text": "Despachente - Dona Luci",
+      "done": false,
+      "createdAt": 1795093266077
     }
   ],
   "recurring": [
