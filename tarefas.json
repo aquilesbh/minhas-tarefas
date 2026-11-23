@@ -1090,6 +1090,12 @@
       "text": "despachante dona luci",
       "done": false,
       "createdAt": 1795438417463
+    },
+    {
+      "id": "1795438420031_yk391",
+      "text": "despachante cobertura",
+      "done": false,
+      "createdAt": 1795438420031
     }
   ],
   "recurring": [
