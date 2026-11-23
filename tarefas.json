@@ -1102,6 +1102,12 @@
       "text": "despachante fernanda",
       "done": false,
       "createdAt": 1795438426527
+    },
+    {
+      "id": "1795438457471_1nmba",
+      "text": "despachante cliente durval",
+      "done": false,
+      "createdAt": 1795438457471
     }
   ],
   "recurring": [
