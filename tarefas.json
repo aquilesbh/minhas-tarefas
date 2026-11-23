@@ -1138,6 +1138,12 @@
       "text": "despachante casa geminada",
       "done": true,
       "createdAt": 1795441982281
+    },
+    {
+      "id": "1795466670627_prysu",
+      "text": "Calcular itbi da Fernanda",
+      "done": false,
+      "createdAt": 1795466670629
     }
   ],
   "recurring": [
