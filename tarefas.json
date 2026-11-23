@@ -1084,6 +1084,12 @@
       "text": "despachante austria",
       "done": false,
       "createdAt": 1795438412697
+    },
+    {
+      "id": "1795438417463_8aswc",
+      "text": "despachante dona luci",
+      "done": false,
+      "createdAt": 1795438417463
     }
   ],
   "recurring": [
