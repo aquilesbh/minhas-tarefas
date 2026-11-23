@@ -1120,6 +1120,12 @@
       "text": "Despachante Georgia",
       "done": false,
       "createdAt": 1795441519242
+    },
+    {
+      "id": "1795441871653_paikv",
+      "text": "pagar copasa",
+      "done": false,
+      "createdAt": 1795441871653
     }
   ],
   "recurring": [
