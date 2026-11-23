@@ -1126,6 +1126,12 @@
       "text": "pagar copasa",
       "done": false,
       "createdAt": 1795441871653
+    },
+    {
+      "id": "1795441875307_og4tu",
+      "text": "pagar cemig",
+      "done": false,
+      "createdAt": 1795441875307
     }
   ],
   "recurring": [
