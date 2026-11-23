@@ -1108,6 +1108,12 @@
       "text": "despachante cliente durval",
       "done": false,
       "createdAt": 1795438457471
+    },
+    {
+      "id": "1795438679981_5z6st",
+      "text": "divisao da comissao",
+      "done": false,
+      "createdAt": 1795438679981
     }
   ],
   "recurring": [
