@@ -1150,6 +1150,12 @@
       "text": "despachante dona luci",
       "done": false,
       "createdAt": 1795522014449
+    },
+    {
+      "id": "1795522209543_123jt",
+      "text": "aluguel Dom Joao Vi",
+      "done": false,
+      "createdAt": 1795522209543
     }
   ],
   "recurring": [
