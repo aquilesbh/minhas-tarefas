@@ -1168,6 +1168,13 @@
       "text": "blusa alexandra",
       "done": true,
       "createdAt": 1795522215759
+    },
+    {
+      "id": "1795782502899_3k1f4",
+      "text": "Pagar: Retorno medico - 10:15",
+      "done": false,
+      "createdAt": 1795782502899,
+      "urgent": true
     }
   ],
   "recurring": [
@@ -1284,7 +1291,7 @@
       "type": "conta",
       "name": "Retorno medico - 10:15",
       "day": 27,
-      "lastRun": null
+      "lastRun": "2026-11"
     }
   ]
 }
