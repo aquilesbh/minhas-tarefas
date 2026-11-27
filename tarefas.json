@@ -1172,7 +1172,7 @@
     {
       "id": "1795782502899_3k1f4",
       "text": "Pagar: Retorno medico - 10:15",
-      "done": false,
+      "done": true,
       "createdAt": 1795782502899,
       "urgent": true
     }
